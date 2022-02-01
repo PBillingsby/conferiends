@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Landing from '../components/Landing'
+import { Center } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +13,9 @@ const Home: NextPage = () => {
           content="Connecting talent"
         />
       </Head>
-      <Landing />
+      <Center>
+        <Landing />
+      </Center>
     </div>
   )
 }
