@@ -22,7 +22,7 @@ export default function NavBar() {
             <NextLink href='/'>Home</NextLink>
             <NextLink href='/pitches/new'>Pitch</NextLink>
             <NextLink href='/pitches'>Fund</NextLink>
-            <Button color='red' background='#eee' onClick={disconnectWallet}>disconnect</Button>
+            <Button colorScheme='teal.400' variant='outline' onClick={disconnectWallet}>Disconnect</Button>
           </HStack>
         }
       </Flex>
