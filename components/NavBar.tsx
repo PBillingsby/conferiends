@@ -1,6 +1,6 @@
-import { Heading, Box, Flex, Button, Spacer, Image, Link, HStack } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { Heading, Box, Flex, Button, Spacer, Image, HStack } from '@chakra-ui/react';
 import { useWallet } from '@web3-ui/core';
-import { useRouter } from 'next/router'
 
 export default function NavBar() {
   const { disconnectWallet,
@@ -8,10 +8,7 @@ export default function NavBar() {
     correctNetwork,
     switchToCorrectNetwork
   } = useWallet();
-  const router = useRouter();
-  if (!connected) {
-    router.push('/')
-  }
+
   return (
     <Box w='100' p='2' mb='5' background='#eee'>
       <Flex>
@@ -21,11 +18,11 @@ export default function NavBar() {
         </Heading>
         <Spacer />
         {connected &&
-          <HStack spacing='4'>
-            <Link px='4' color='teal.400' href='/'>Home</Link>
-            <Link px='4' color='teal.400' href='/pitches/new'>Pitch</Link>
-            <Link px='4' color='teal.400' href='/pitches'>Fund</Link>
-            <Button color='#eee' onClick={disconnectWallet}>disconnect</Button>
+          <HStack color='teal.400' spacing='5'>
+            <NextLink href='/'>Home</NextLink>
+            <NextLink href='/pitches/new'>Pitch</NextLink>
+            <NextLink href='/pitches'>Fund</NextLink>
+            <Button colorScheme='teal.400' variant='outline' onClick={disconnectWallet}>Disconnect</Button>
           </HStack>
         }
       </Flex>

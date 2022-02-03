@@ -1,4 +1,4 @@
-import { Box, Button, Flex, VStack } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 import { useWallet } from '@web3-ui/core';
 import LandingInformation from './LandingInformation'
 export default function Landing() {
@@ -9,16 +9,16 @@ export default function Landing() {
   } = useWallet();
 
   return (
-    <VStack w="100">
-      <Flex>
+    <Box>
+      <Flex mb='5'>
         {connected
           ?
-          <Box>{connection.ens || connection.userAddress}</Box>
+          <Heading p='2' border='1px solid #eee' borderRadius='3' size='sm'>Eth Address: {connection.ens || `${connection.userAddress!.slice(0, 4)}...${connection.userAddress!.slice(connection.userAddress!.length - 4)}`}</Heading>
           :
-          <Button m="auto" colorScheme="dark" variant='outline' onClick={connectWallet}>Connect Wallet</Button>
+          <Button m='auto' colorScheme='dark' variant='outline' onClick={connectWallet}>Connect Wallet</Button>
         }
       </Flex>
       <LandingInformation />
-    </VStack >
+    </Box >
   );
 }

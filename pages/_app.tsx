@@ -1,13 +1,13 @@
-import type { AppProps } from 'next/app'
-import { ChakraProvider, Container, extendTheme } from '@chakra-ui/react'
+import { AppProps } from 'next/app'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { Provider, NETWORKS } from '@web3-ui/core';
 import NavBar from '../components/NavBar'
 import { useWallet } from '@web3-ui/core';
 
 const theme = extendTheme({
   fonts: {
-    heading: 'Monospace',
-    body: 'Monospace',
+    heading: 'IBM Plex Mono',
+    body: 'Tillana'
   },
 })
 function MyApp({ Component, pageProps }: AppProps) {
@@ -15,11 +15,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider theme={theme}>
       <Provider network={NETWORKS.mainnet}>
         <NavBar />
-        <Container>
-          <Component {...pageProps} />
-        </Container>
+        <Component {...pageProps} />
       </Provider>
-
     </ChakraProvider >
   )
 }

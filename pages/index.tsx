@@ -1,7 +1,7 @@
-import type { NextPage } from 'next'
+import { NextPage } from 'next'
 import Head from 'next/head'
 import Landing from '../components/Landing'
-import { Center } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
   return (
@@ -13,9 +13,9 @@ const Home: NextPage = () => {
           content="Connecting talent"
         />
       </Head>
-      <Center>
+      <Container maxW='container.xl' h='100%'>
         <Landing />
-      </Center>
+      </Container>
     </div>
   )
 }
