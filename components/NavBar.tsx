@@ -18,11 +18,11 @@ export default function NavBar() {
         </Heading>
         <Spacer />
         {connected &&
-          <HStack spacing='4'>
-            <NextLink px='4' color='teal.400' href='/'>Home</NextLink>
-            <NextLink px='4' color='teal.400' href='/pitches/new'>Pitch</NextLink>
-            <NextLink px='4' color='teal.400' href='/pitches'>Fund</NextLink>
-            <Button background='#eee' onClick={disconnectWallet}>disconnect</Button>
+          <HStack color='teal.400' spacing='5'>
+            <NextLink href='/'>Home</NextLink>
+            <NextLink href='/pitches/new'>Pitch</NextLink>
+            <NextLink href='/pitches'>Fund</NextLink>
+            <Button color='red' background='#eee' onClick={disconnectWallet}>disconnect</Button>
           </HStack>
         }
       </Flex>

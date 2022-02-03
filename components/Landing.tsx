@@ -9,16 +9,16 @@ export default function Landing() {
   } = useWallet();
 
   return (
-    <VStack w="100">
-      <Flex>
+    <Box>
+      <Flex mb='5'>
         {connected
           ?
           <Box>{connection.ens || connection.userAddress}</Box>
           :
-          <Button m="auto" colorScheme="dark" variant='outline' onClick={connectWallet}>Connect Wallet</Button>
+          <Button m='auto' colorScheme='dark' variant='outline' onClick={connectWallet}>Connect Wallet</Button>
         }
       </Flex>
       <LandingInformation />
-    </VStack >
+    </Box >
   );
 }
