@@ -1,6 +1,8 @@
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 import { useWallet } from '@web3-ui/core';
 import LandingInformation from './LandingInformation'
+import About from './About'
+
 export default function Landing() {
   const {
     connection,
@@ -18,6 +20,7 @@ export default function Landing() {
           <Button m='auto' colorScheme='dark' variant='outline' onClick={connectWallet}>Connect Wallet</Button>
         }
       </Flex>
+      <About />
       <LandingInformation />
     </Box >
   );

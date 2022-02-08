@@ -1,11 +1,16 @@
-import { Box, Heading } from '@chakra-ui/react';
-import PitchGrid from './PitchGrid'
+import { Box, Heading, Flex } from '@chakra-ui/react';
+import Pitches from './Pitches'
 export default function LandingInformation() {
   return (
-    <Box>
-      <Heading size='lg' color='teal.400'>How it works</Heading>
-      <PitchGrid />
-
-    </Box>
+    <Flex>
+      <Box>
+        <Heading size='lg' mb='4' color='teal.400'>How to pitch</Heading>
+        <Pitches />
+      </Box>
+      <Box>
+        <Heading size='lg' mb='4' color='teal.400'>How to fund</Heading>
+        <Pitches />
+      </Box>
+    </Flex>
   );
 }
