@@ -9,6 +9,9 @@ const theme = extendTheme({
     heading: 'IBM Plex Mono',
     body: 'Tillana'
   },
+  colors: {
+    primary: 'blue.400'
+  }
 })
 function MyApp({ Component, pageProps }: AppProps) {
   return (
