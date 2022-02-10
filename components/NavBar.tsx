@@ -1,7 +1,7 @@
 import NextLink from 'next/link';
 import { useWallet } from '@web3-ui/core';
 
-import { Heading, Box, Flex, Button, Spacer, Icon, HStack, Text, Select } from '@chakra-ui/react';
+import { Box, Flex, Button, Spacer, Icon, HStack, Text, Select } from '@chakra-ui/react';
 import { Ticket } from 'tabler-icons-react';
 
 export default function NavBar() {

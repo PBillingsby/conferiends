@@ -1,5 +1,4 @@
 import { Box, Flex } from '@chakra-ui/react';
-import LandingInformation from './LandingInformation';
 import About from './About';
 
 export default function Landing() {
@@ -8,7 +7,6 @@ export default function Landing() {
       <Flex mb={5}>
       </Flex>
       <About />
-      {/* <LandingInformation /> */}
     </Box >
   );
 }
