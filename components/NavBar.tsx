@@ -1,36 +1,44 @@
 import NextLink from 'next/link';
-import { Heading, Box, Flex, Button, Spacer, Image, HStack, Text } from '@chakra-ui/react';
 import { useWallet } from '@web3-ui/core';
+
+import { Heading, Box, Flex, Button, Spacer, Icon, HStack, Text, Select } from '@chakra-ui/react';
+import { Ticket } from 'tabler-icons-react';
 
 export default function NavBar() {
   const { disconnectWallet,
     connected,
-    correctNetwork,
+    connection,
     connectWallet,
     switchToCorrectNetwork
   } = useWallet();
 
+  const ethAddress = () => {
+    return `${connection.userAddress!.slice(0, 4)
+      }...${connection.userAddress!.slice(connection.userAddress!.length - 4)
+      } `
+  }
+
   return (
-    <Box w='100' p='2' mb='5' background='#eee'>
+    <Box>
       <Flex>
-        <Image src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Heart-hand-shake.svg/120px-Heart-hand-shake.svg.png' boxSize='40px' />
-        <Heading size='lg' color='blue.800' pt='1'>
-          <Text bgGradient='linear(to-r, blue.200, blue.400)' bgClip='text'>
-            Conferiends
+        <Icon as={Ticket} w={7} h={7} />
+        <Text color='blue.800' pt={1}>
+          Conferiends
           </Text>
-        </Heading>
+        <Spacer />
+        <HStack color='blue.800' spacing={5}>
+          <NextLink href='/pitches/new'>Get Funded</NextLink>
+          <NextLink href='/pitches'>Fund Others</NextLink>
+        </HStack>
         <Spacer />
         {connected ?
-          <HStack color='blue.800' spacing='5'>
-            <NextLink href='/'>Home</NextLink>
-            <NextLink href='/pitches/new'>Pitch</NextLink>
-            <NextLink href='/pitches'>Fund</NextLink>
-            <Button colorScheme='#eee' variant='outline' onClick={disconnectWallet}>Disconnect</Button>
-          </HStack>
-          :
+          <Select>
+            <option disabled selected>{ethAddress()}</option>
+            <option onSelect={disconnectWallet}>Disconnect</option>
+          </Select> :
           <Button m='auto' colorScheme='dark' variant='outline' onClick={connectWallet}>Connect Wallet</Button>
         }
       </Flex>
-    </Box>
+    </Box >
   )
 }

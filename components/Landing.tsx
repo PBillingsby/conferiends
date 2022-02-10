@@ -5,10 +5,10 @@ import About from './About';
 export default function Landing() {
   return (
     <Box>
-      <Flex mb='5'>
+      <Flex mb={5}>
       </Flex>
       <About />
-      <LandingInformation />
+      {/* <LandingInformation /> */}
     </Box >
   );
 }
