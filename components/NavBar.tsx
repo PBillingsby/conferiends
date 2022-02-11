@@ -19,8 +19,8 @@ export default function NavBar() {
   }
 
   return (
-    <Box>
-      <Flex>
+    <Box pb={8}>
+      <Flex pb={8}>
         <Icon as={Ticket} w={7} h={7} />
         <Text color='blue.800' pt={1}>
           Conferiends
@@ -32,9 +32,9 @@ export default function NavBar() {
         </HStack>
         <Spacer />
         {connected ?
-          <Select>
+          <Select w='20%'>
             <option disabled selected>{ethAddress()}</option>
-            <option onSelect={disconnectWallet}>Disconnect</option>
+            <option onSelect={() => disconnectWallet()}>Disconnect</option>
           </Select> :
           <Button m='auto' colorScheme='dark' variant='outline' onClick={connectWallet}>Connect Wallet</Button>
         }

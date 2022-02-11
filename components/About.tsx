@@ -1,10 +1,17 @@
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Text, HStack, Stack, Image } from '@chakra-ui/react';
+import Underline from './Underline'
 export default function About() {
   return (
-    <Box mb={8}>
-      <Heading size='lg' color='blue.800'>About Conferiends</Heading>
-      <Text py={3}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
-      <Text py={3}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+    <Box>
+      <Heading size='2xl' color='blue.800'>Making conferences</Heading>
+      <HStack pb={6}>
+        <Heading size='2xl' color='blue.800'>more</Heading>
+        <Stack pt={6}>
+          <Heading size='2xl' bgGradient='linear(to-l, #E49882, #C76173 70%, #9A7BC3 100%)' bgClip='text'>accessible</Heading>
+          <Underline />
+        </Stack>
+      </HStack>
+      <Heading size='lg' w='40%' py={3} fontWeight='light'>We match talented individuals with generous benefactors to help fund trips to life changing conferences</Heading>
     </Box>
   );
 }
