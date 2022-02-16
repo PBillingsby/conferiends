@@ -5,7 +5,8 @@ import { Box, Flex, Button, Spacer, Icon, HStack, Text, Select } from '@chakra-u
 import { Ticket } from 'tabler-icons-react';
 
 export default function NavBar() {
-  const { disconnectWallet,
+  const {
+    disconnectWallet,
     connected,
     connection,
     connectWallet,
@@ -35,7 +36,7 @@ export default function NavBar() {
         {connected ?
           <Select w='20%'>
             <option disabled selected>{ethAddress()}</option>
-            <option onSelect={() => disconnectWallet()}>Disconnect</option>
+            <option onSelect={disconnectWallet}>Disconnect</option>
           </Select> :
           <Button m='auto' colorScheme='dark' variant='outline' onClick={connectWallet}>Connect Wallet</Button>
         }
