@@ -1,16 +1,12 @@
 import { useState, useEffect } from 'react'
+import ModalForm from './ModalForm'
 
 import {
-  Modal,
   ModalOverlay,
   ModalContent,
   ModalBody,
   ModalCloseButton,
-  Button,
   Box,
-  Flex,
-  Text,
-  useDisclosure
 } from "@chakra-ui/react"
 
 export default function BeginModal() {
@@ -23,10 +19,8 @@ export default function BeginModal() {
       />
       <ModalContent pt={6}>
         <ModalCloseButton />
-        <ModalBody>
-          <Text>Hey</Text>
-          <Flex pt={4}>
-          </Flex>
+        <ModalBody >
+          <ModalForm />
         </ModalBody>
       </ModalContent>
     </Box>

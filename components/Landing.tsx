@@ -36,7 +36,7 @@ export default function Landing() {
         Get Started
       </Button>
       {!!connection.userAddress &&
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal size='lg' isOpen={isOpen} onClose={onClose}>
           <BeginModal />
         </Modal>
       }
