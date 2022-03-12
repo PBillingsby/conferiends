@@ -3,7 +3,7 @@ import Underline from './Underline'
 import BeginModal from './BeginModal'
 export default function Landing() {
   return (
-    <Box>
+    <Box pt={64}>
       <Heading size='2xl'>Making conferences</Heading>
       <HStack pb={6}>
         <Heading size='2xl'>more</Heading>
@@ -12,7 +12,7 @@ export default function Landing() {
           <Underline />
         </Stack>
       </HStack>
-      <Heading size='md' w='40%' py={2} fontWeight='light' color='gray' mb={6}>We match talented individuals with generous benefactors to help fund trips to life changing conferences</Heading>
+      <Heading size='md' w='40%' py={2} fontWeight='light' color='gray.400' mb={6}>We match talented individuals with generous benefactors to help fund trips to life changing conferences</Heading>
       <BeginModal />
     </Box >
   );

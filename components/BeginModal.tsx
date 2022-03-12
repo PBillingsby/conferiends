@@ -17,21 +17,20 @@ export default function BeginModal() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box>
-      <Button size='md' bg='#000' color='#fff' onClick={() => onOpen()}>
+      <Button size='lg' bg='none' border='1.5px solid black' fontSize='xl' boxShadow='0px 0px 15px #a5a5a5' _hover={{ boxShadow: '0px 0px 35px #a5a5a5', bg: '#eee', color: 'black' }} color='#fff' onClick={() => onOpen()}>
         Get Started
-    </Button>
+      </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+        <ModalOverlay bg='none'
+          backdropFilter='auto'
+          backdropInvert='10%'
+          backdropBlur='3px'
+        />
         <ModalContent pt={5}>
           <ModalCloseButton />
-          <ModalBody >
+          <ModalBody>
             <Heading size='md'>Choose your destiny</Heading>
             <Flex pt={4}>
-              <Box>
-                <Link href='/pitches/new'>Pitch</Link>
-              </Box>
-              <Spacer />
-              <Link href='pitches'>Fund</Link>
 
             </Flex>
           </ModalBody>
