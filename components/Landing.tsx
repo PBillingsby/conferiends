@@ -1,8 +1,9 @@
 import { useWallet } from '@web3-ui/core';
 
-import { Box, Heading, HStack, Stack, Button, Modal, useDisclosure } from '@chakra-ui/react';
+import { Box, Heading, HStack, Stack, Link } from '@chakra-ui/react';
 import Underline from './Underline'
 import BeginModal from './BeginModal'
+
 export default function Landing() {
   const {
     disconnectWallet,
@@ -11,15 +12,6 @@ export default function Landing() {
     connectWallet,
     switchToCorrectNetwork
   } = useWallet();
-
-  const handleClick = async (e: React.MouseEvent) => {
-    await connection
-    if (!connection.userAddress) {
-      connectWallet()
-      onOpen()
-    }
-  }
-  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <Box pt={64}>
@@ -31,15 +23,9 @@ export default function Landing() {
           <Underline />
         </Stack>
       </HStack>
-      <Heading size='md' w='40%' py={2} fontWeight='light' color='gray.400' mb={6}>We match talented individuals with generous benefactors to help fund trips to life changing conferences</Heading>
-      <Button size='lg' bg='none' border='1.5px solid black' fontSize='xl' boxShadow='0px 0px 15px #a5a5a5' _hover={{ boxShadow: '0px 0px 35px #a5a5a5', bg: '#eee', color: 'black' }} color='#fff' onClick={(e) => handleClick(e)}>
-        Get Started
-      </Button>
-      {!!connection.userAddress &&
-        <Modal size='lg' isOpen={isOpen} onClose={onClose}>
-          <BeginModal />
-        </Modal>
-      }
+      <Heading size='md' w='30vw' py={2} fontWeight='light' color='gray.400' mb={6}>We match talented individuals with generous benefactors to help fund trips to life changing conferences</Heading>
+      <BeginModal />
+      {connection.userAddress === undefined && <Link fontSize='sm' color='white' href='/pitches'>or fund others</Link>}
     </Box >
   );
 }
