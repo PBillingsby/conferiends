@@ -47,7 +47,7 @@ export default function BeginModal() {
         <ModalContent pt={6}>
           <ModalBody p={6}>
             <Heading size='lg'>Pitch Form</Heading>
-            <Text as='sup'>tell us more about your event, and why you'd like funding to attend</Text>
+            <Text as='sup'>tell us more about your event, and why you&apos;d like funding to attend</Text>
             <FormControl>
               <FormLabel htmlFor='address'>Address</FormLabel>
               <Input id='address' textAlign='center' type='text' value={!!connection.userAddress ? connection.userAddress : ''} isReadOnly />
