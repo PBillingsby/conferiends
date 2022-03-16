@@ -1,5 +1,4 @@
 
-import { useWallet } from '@web3-ui/core';
 import {
   Modal,
   ModalOverlay,
@@ -26,8 +25,10 @@ import {
 
 export default function BeginModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { connection, connected, connectWallet } = useWallet();
-  const address = (connected && connection.userAddress !== undefined)
+  const address = false;
+  const connectWallet = (event: any) => {
+    debugger
+  }
 
   return (
     <Box mb={2}>
@@ -50,7 +51,7 @@ export default function BeginModal() {
             <Text as='sup'>tell us more about your event, and why you&apos;d like funding to attend</Text>
             <FormControl>
               <FormLabel htmlFor='address'>Address</FormLabel>
-              <Input id='address' textAlign='center' type='text' value={!!connection.userAddress ? connection.userAddress : ''} isReadOnly />
+              {/* <Input id='address' textAlign='center' type='text' value={!!connection.userAddress ? connection.userAddress : ''} isReadOnly /> */}
               <FormLabel htmlFor='event'>Event</FormLabel>
               <Select placeholder='Select Event'>
                 <option value='react-miami'>React Miami</option>
