@@ -1,4 +1,5 @@
-import NextLink from "next/link"
+import { useRouter } from 'next/router'
+
 import { Spacer, Icon, HStack, Heading, Link } from '@chakra-ui/react';
 import { Ticket } from 'tabler-icons-react';
 
@@ -10,13 +11,11 @@ export default function NavBar() {
         Conferiends
       </Heading>
       <Spacer />
-      <HStack color='white' spacing={8} fontSize='xl'>
-        <NextLink href={'/'} passHref>
-          <Link>Home</Link>
-        </NextLink>
-        <NextLink href={'/pitches'} passHref>
-          <Link>Fund Others</Link>
-        </NextLink>
+      <HStack spacing={12} fontSize={['md', '2xl']}>
+        <Link href='/'>
+          Home
+        </Link>
+        <Link href='/pitches'>Fund Others</Link>
       </HStack >
     </HStack >
   )

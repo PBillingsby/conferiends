@@ -1,4 +1,3 @@
-
 import {
   Modal,
   ModalOverlay,
@@ -9,9 +8,10 @@ import {
   Spacer,
   FormControl,
   FormLabel,
-  Input,
   Heading,
   Text,
+  Icon,
+  Input,
   Select,
   Button,
   Textarea,
@@ -23,9 +23,11 @@ import {
   useDisclosure,
 } from "@chakra-ui/react"
 
+import { CurrencyEthereum } from 'tabler-icons-react';
+
 export default function BeginModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const address = false;
+  const address = true;
   const connectWallet = (event: any) => {
     debugger
   }
@@ -39,7 +41,7 @@ export default function BeginModal() {
         }} color='#fff' onClick={address ? onOpen : connectWallet}>
         {address ? 'Get Started' : 'Connect Wallet'}
       </Button>
-      <Modal size='lg' isOpen={isOpen} onClose={onClose}>
+      <Modal maxW='350px' isOpen={isOpen} onClose={onClose}>
         <ModalOverlay bg='none'
           backdropFilter='auto'
           backdropInvert='10%'
@@ -48,24 +50,24 @@ export default function BeginModal() {
         <ModalContent pt={6}>
           <ModalBody p={6}>
             <Heading size='lg'>Pitch Form</Heading>
-            <Text as='sup'>tell us more about your event, and why you&apos;d like funding to attend</Text>
+            <Text as='sup'>tell us more about the event and why you&apos;d like funding to attend</Text>
             <FormControl>
               <FormLabel htmlFor='address'>Address</FormLabel>
-              {/* <Input id='address' textAlign='center' type='text' value={!!connection.userAddress ? connection.userAddress : ''} isReadOnly /> */}
-              <FormLabel htmlFor='event'>Event</FormLabel>
-              <Select placeholder='Select Event'>
+              <Input id='address' textAlign='center' type='text' value={address ? '0x00000000' : '0x1000000'} isReadOnly />
+              <FormLabel htmlFor='event' pt={2}>Event</FormLabel>
+              <Select placeholder='Select Event' pb={2}>
                 <option value='react-miami'>React Miami</option>
                 <option value='dev-connect'>DevConnect</option>
               </Select>
               <FormLabel htmlFor='amount'>Funds Needed</FormLabel>
-              <NumberInput min={0} step={0.01}>
+              <NumberInput step={0.01} min={0} onChange={(e) => setEthAmount(e)}>
                 <NumberInputField />
                 <NumberInputStepper>
                   <NumberIncrementStepper />
                   <NumberDecrementStepper />
                 </NumberInputStepper>
               </NumberInput>
-              <FormLabel htmlFor='pitch'>Pitch</FormLabel>
+              <FormLabel htmlFor='pitch' pt={2}>Pitch</FormLabel>
               <Textarea id='pitch' />
               <Flex mt={6}>
                 <Button size='md'>Pitch</Button>

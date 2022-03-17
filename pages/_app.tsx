@@ -2,14 +2,26 @@ import { AppProps } from 'next/app'
 import { ChakraProvider, Box, Container, DarkMode } from '@chakra-ui/react'
 import Navbar from '../components/NavBar'
 import { extendTheme } from '@chakra-ui/react';
+
 const theme = extendTheme({
+  components: {
+    Link: {
+      baseStyle: {
+        _hover: {
+          textDecoration: 'none',
+        },
+      },
+    },
+  },
   styles: {
     global: {
       body: {
-        // backgroundImage: 'url("../public/bg.jpg")',
-        // backgroundSize: 'fit-content',
-        // bg: 'none'
       },
+      a: {
+        _hover: {
+          textDecoration: 'none',
+        },
+      }
     },
   }
 });
