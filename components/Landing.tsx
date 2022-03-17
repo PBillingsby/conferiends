@@ -3,7 +3,6 @@ import Underline from './Underline'
 import BeginModal from './BeginModal'
 
 export default function Landing() {
-
   return (
     <Box pt={[20, 64]}>
       <Heading size='2xl'>Making conferences</Heading>
