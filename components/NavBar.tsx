@@ -1,13 +1,10 @@
-import { useRouter } from 'next/router'
-
-import { Spacer, Icon, HStack, Heading, Link } from '@chakra-ui/react';
-import { Ticket } from 'tabler-icons-react';
-
+import { Spacer, HStack, Heading, Link } from '@chakra-ui/react';
+import IconVector from './IconVector'
 export default function NavBar() {
   return (
     <HStack px={8} pb={8} w='100vw' position='fixed'>
-      <Icon as={Ticket} w={8} h={8} />
-      <Heading size='lg' color='white'>
+      <IconVector />
+      <Heading size='lg' bg='linear(to-r, #E49882, #C76173 70%, #9A7BC3 100%)'>
         Conferiends
       </Heading>
       <Spacer />

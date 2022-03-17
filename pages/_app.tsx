@@ -5,10 +5,21 @@ import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
 const config: ThemeConfig = {
   initialColorMode: 'dark',
-  useSystemColorMode: false
+  useSystemColorMode: false,
 }
 
-const theme = extendTheme({ config })
+const theme = extendTheme({
+  config,
+  components: {
+    Link: {
+      baseStyle: {
+        _hover: {
+          textDecoration: 'none',
+        },
+      },
+    },
+  }
+})
 
 
 
