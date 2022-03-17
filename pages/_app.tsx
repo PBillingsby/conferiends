@@ -1,32 +1,16 @@
 import { AppProps } from 'next/app'
 import { ChakraProvider, Box, Container, DarkMode } from '@chakra-ui/react'
 import Navbar from '../components/NavBar'
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
-const theme = extendTheme({
+const config: ThemeConfig = {
   initialColorMode: 'dark',
-  useSystemColorMode: false,
-  components: {
-    Link: {
-      baseStyle: {
-        _hover: {
-          textDecoration: 'none',
-        },
-      },
-    },
-  },
-  styles: {
-    global: {
-      body: {
-      },
-      a: {
-        _hover: {
-          textDecoration: 'none',
-        },
-      }
-    },
-  }
-});
+  useSystemColorMode: false
+}
+
+const theme = extendTheme({ config })
+
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
