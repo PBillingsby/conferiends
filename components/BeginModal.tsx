@@ -41,7 +41,7 @@ export default function BeginModal() {
         }} color='#fff' onClick={address ? onOpen : connectWallet}>
         {address ? 'Get Started' : 'Connect Wallet'}
       </Button>
-      <Modal maxW='350px' isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay bg='none'
           backdropFilter='auto'
           backdropInvert='10%'
@@ -60,7 +60,7 @@ export default function BeginModal() {
                 <option value='dev-connect'>DevConnect</option>
               </Select>
               <FormLabel htmlFor='amount'>Funds Needed</FormLabel>
-              <NumberInput step={0.01} min={0} onChange={(e) => setEthAmount(e)}>
+              <NumberInput step={0.01} min={0}>
                 <NumberInputField />
                 <NumberInputStepper>
                   <NumberIncrementStepper />

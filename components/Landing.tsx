@@ -15,7 +15,9 @@ export default function Landing() {
         </Stack>
       </HStack>
       <Heading size='md' w='30vw' py={2} fontWeight='light' color='gray.400' mb={6}>We match talented individuals with generous benefactors to help fund trips to life changing conferences</Heading>
-      <BeginModal />
+      <Box maxW='350px'>
+        <BeginModal />
+      </Box>
     </Box >
   );
 }
