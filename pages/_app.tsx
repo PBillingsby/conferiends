@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app'
-import { ChakraProvider, Box, Container, DarkMode } from '@chakra-ui/react'
+import { ChakraProvider, Box, Container } from '@chakra-ui/react'
 import Navbar from '../components/NavBar'
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
