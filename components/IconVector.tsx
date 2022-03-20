@@ -1,6 +1,11 @@
-export default function IconVector() {
+
+interface IconProps {
+  isNavBar: boolean
+}
+export default function IconVector(props: IconProps) {
+  const iconDimensions = props.isNavBar ? 48 : 20
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" stroke="#C76173"
+    <svg xmlns="http://www.w3.org/2000/svg" width={iconDimensions} height={iconDimensions} viewBox="0 0 24 24" stroke="#C76173"
       strokeWidth="1.25" fill="none" strokeLinecap="round" strokeLinejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <line x1="15" y1="5" x2="15" y2="7"></line>
