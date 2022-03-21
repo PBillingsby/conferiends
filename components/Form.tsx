@@ -13,20 +13,16 @@ import {
   Select,
   Button,
   Textarea,
-  IconButton,
   InputGroup,
-  InputRightElement,
   NumberInput,
   NumberInputField,
   NumberIncrementStepper,
   NumberDecrementStepper,
   NumberInputStepper,
-  useToast,
 } from "@chakra-ui/react"
 
-import { Copy } from 'tabler-icons-react';
-
 import IconVector from '../components/IconVector'
+import Clipboard from './Clipboard';
 import { addressFormatter } from '../utils/index.js'
 
 interface WalletAddressProps {
@@ -35,21 +31,9 @@ interface WalletAddressProps {
 }
 
 export default function Form(props: WalletAddressProps) {
-  const toast = useToast({
-    containerStyle: {
-      width: '20vw',
-      maxWidth: '100%',
-      bgColor: 'gray.800'
-    },
-  })
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(event);
-  }
-
-  const handleAddressCopy = (walletAddress: string) => {
-    debugger
-
   }
 
   return (
@@ -65,16 +49,7 @@ export default function Form(props: WalletAddressProps) {
         <FormLabel htmlFor='address'>Address</FormLabel>
         <InputGroup>
           <Input id='address' textAlign='center' type='text' value={addressFormatter(props.walletAddress)} isReadOnly />
-          <InputRightElement><IconButton aria-label='Copy address' size='xs' p={1}
-            icon={<Copy strokeWidth={'1'} />} onClick={() =>
-              // handleAddressCopy(props.walletAddress)
-              toast({
-                title: 'Copied',
-                status: 'success',
-                isClosable: true,
-              })
-            } />
-          </InputRightElement>
+          <Clipboard walletAddress={props.walletAddress} />
         </InputGroup>
         <FormLabel htmlFor='event' pt={2}>Event</FormLabel>
         <Select placeholder='Select Event' mb={2}>
