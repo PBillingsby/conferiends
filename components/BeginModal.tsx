@@ -18,6 +18,14 @@ declare const window: any
 export default function BeginModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [walletAddress, setWalletAddress] = useState('');
+
+  const toast = useToast({
+    containerStyle: {
+      width: '20vw',
+      maxWidth: '100%',
+    },
+  })
+
   const handleClick = async () => {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
@@ -31,12 +39,6 @@ export default function BeginModal() {
       onOpen();
     }
     else {
-      const toast = useToast({
-        containerStyle: {
-          width: '20vw',
-          maxWidth: '100%',
-        },
-      })
       toast({
         title: 'Must have MetaMask browser extension',
         status: 'error',
