@@ -65,7 +65,7 @@ export default function Form(props: WalletAddressProps) {
           </NumberInputStepper>
         </NumberInput>
         <FormLabel htmlFor='pitch' pt={2}>Pitch</FormLabel>
-        <Textarea id='pitch' />
+        <Textarea id='pitch' h={32} />
         <Flex mt={6}>
           <Button size='md' onClick={props.onClose}>Close</Button>
           <Spacer />

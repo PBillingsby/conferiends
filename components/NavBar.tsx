@@ -9,7 +9,7 @@ export default function NavBar() {
         Conferiends
       </Heading>
       <Spacer />
-      <HStack spacing={12} fontSize={['md', '2xl']}>
+      <HStack spacing={[8, 12]} fontSize={['md', '2xl']}>
         <Link href='/'>
           Home
         </Link>
