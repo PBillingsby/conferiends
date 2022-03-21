@@ -14,11 +14,11 @@ export default function Clipboard(props: ClipboardProps) {
     containerStyle: {
       width: '20vw',
       maxWidth: '100%',
-      bgColor: 'gray.800'
+      color: 'gray.800'
     },
   })
   function handleAddressCopy() {
-    navigator.clipboard.writeText(props.walletAddress);    
+    navigator.clipboard.writeText(props.walletAddress);
     toast({
       title: 'Copied',
       status: 'success',

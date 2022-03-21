@@ -6,6 +6,7 @@ import {
   Box,
   Button,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import Form from './Form';
 
@@ -30,12 +31,22 @@ export default function BeginModal() {
       onOpen();
     }
     else {
-      debugger
+      const toast = useToast({
+        containerStyle: {
+          width: '20vw',
+          maxWidth: '100%',
+        },
+      })
+      toast({
+        title: 'Must have MetaMask browser extension',
+        status: 'error',
+        isClosable: true,
+      });
     }
   }
 
   return (
-    <Box mb={2}>
+    <Box mb={[0, 2]}>
       <Button size='lg' minW='15vw' bg='none' border='1.5px solid black'
         fontSize='xl' boxShadow='0px 0px 15px #a5a5a5' _hover={{
           boxShadow: '0px 0px 35px #a5a5a5',
@@ -43,7 +54,7 @@ export default function BeginModal() {
         }} color='#fff' onClick={handleClick}>
         Get Started
       </Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size='lg'>
         <ModalOverlay bg='none'
           backdropFilter='auto'
           backdropInvert='10%'
