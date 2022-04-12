@@ -6,46 +6,13 @@ import {
   Box,
   Button,
   useDisclosure,
-  useToast,
 } from "@chakra-ui/react";
 import Form from './Form';
 
-import { CurrencyEthereum } from 'tabler-icons-react';
-import { useState } from 'react'
-import { ethers } from 'ethers'
 declare const window: any
 
 export default function BeginModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [walletAddress, setWalletAddress] = useState('');
-
-  const toast = useToast({
-    containerStyle: {
-      width: '20vw',
-      maxWidth: '100%',
-    },
-  })
-
-  const handleClick = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-      const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-
-      await provider.send("eth_requestAccounts", []);
-
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-
-      setWalletAddress(address);
-      onOpen();
-    }
-    else {
-      toast({
-        title: 'Must have MetaMask browser extension',
-        status: 'error',
-        isClosable: true,
-      });
-    }
-  }
 
   return (
     <Box mb={[0, 2]}>
@@ -53,7 +20,7 @@ export default function BeginModal() {
         fontSize='xl' boxShadow='0px 0px 15px #a5a5a5' _hover={{
           boxShadow: '0px 0px 35px #a5a5a5',
           bg: '#eee', color: 'black'
-        }} color='#fff' onClick={handleClick}>
+        }} color='#fff' onClick={onOpen}>
         Get Started
       </Button>
       <Modal isOpen={isOpen} onClose={onClose} size='lg'>
@@ -64,7 +31,7 @@ export default function BeginModal() {
         />
         <ModalContent>
           <ModalBody p={6}>
-            <Form walletAddress={walletAddress} onClose={onClose} />
+            <Form onClose={onClose} />
           </ModalBody>
         </ModalContent>
       </Modal>
