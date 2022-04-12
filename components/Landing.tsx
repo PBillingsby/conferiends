@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Stack, Link } from '@chakra-ui/react';
+import { Box, Heading, HStack, Stack } from '@chakra-ui/react';
 import Underline from './Underline'
 import BeginModal from './BeginModal'
 
